@@ -37,9 +37,9 @@ function! s:SetColorSchemes(args)
     let s:mycolorschemes = map(paths, 'fnamemodify(v:val, ":t:r")')
     echo 'List of colors set from all installed color schemes'
   elseif a:args == 'my'
-    let c1 = 'default elflord peachpuff desert256 breeze morning'
-    let c2 = 'darkblue gothic aqua earth black_angus relaxedgreen'
-    let c3 = 'darkblack freya motus impact less chocolateliquor'
+    let c1 = 'asciiville everforest cool'
+    let c2 = 'desertink distinguished hybrid luna'
+    let c3 = 'molokai solarized zenburn'
     let s:mycolorschemes = split(c1.' '.c2.' '.c3)
     echo 'List of colors set from built-in names'
   elseif a:args == 'now'
