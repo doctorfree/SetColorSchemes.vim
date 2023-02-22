@@ -89,7 +89,7 @@ function! s:NextColor(how, echo_color)
     endif
     try
       execute 'colorscheme '.s:mycolorschemes[current]
-      if setairlinetheme
+      if s:setairlinetheme
         execute 'AirlineTheme '.s:mycolorschemes[current]
       endif
       break
@@ -126,7 +126,7 @@ function! s:HourColor()
   endif
   let nowcolors = 'asciiville everforest cool desertink solarized'
   execute 'colorscheme '.split(nowcolors)[i]
-  if setairlinetheme
+  if s:setairlinetheme
     execute 'AirlineTheme '.split(nowcolors)[i]
   endif
   redraw
