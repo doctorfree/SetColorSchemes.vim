@@ -1,5 +1,5 @@
 " Change the color scheme from a list of color scheme names.
-" Also changes the corresponding Airline theme.
+" Optionally changes the corresponding Airline theme.
 " Press key:
 "   F7          previous scheme
 "   F8          next scheme
@@ -16,6 +16,11 @@ if v:version < 700 || exists('loaded_setcolorschemes') || &cp
 endif
 
 let loaded_setcolorschemes = 1
+if exists('g:setairlinetheme')
+  let s:setairlinetheme = g:setairlinetheme
+else
+  let s:setairlinetheme = 0
+endif
 if exists('g:mycolorschemes')
   let s:mycolorschemes = g:mycolorschemes
 else
@@ -84,7 +89,9 @@ function! s:NextColor(how, echo_color)
     endif
     try
       execute 'colorscheme '.s:mycolorschemes[current]
-      execute 'AirlineTheme '.s:mycolorschemes[current]
+      if setairlinetheme
+        execute 'AirlineTheme '.s:mycolorschemes[current]
+      endif
       break
     catch /E185:/
       call add(missing, s:mycolorschemes[current])
@@ -119,7 +126,9 @@ function! s:HourColor()
   endif
   let nowcolors = 'asciiville everforest cool desertink solarized'
   execute 'colorscheme '.split(nowcolors)[i]
-  execute 'AirlineTheme '.split(nowcolors)[i]
+  if setairlinetheme
+    execute 'AirlineTheme '.split(nowcolors)[i]
+  endif
   redraw
   echo g:colors_name
 endfunction

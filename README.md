@@ -27,6 +27,12 @@ Override list of colorschemes through which to cycle, for example:
 
     let g:mycolorschemes = ['asciiville', 'everforest', 'cool', 'desertink']
 
+To set the Airline theme corresponding to the selected colorscheme,
+
+    let g:setairlinetheme = 1
+
+Default is leave Airline theme unchanged.
+
 ## Usage
 
 Sets the Vim/Neovim colorscheme from a list of configured colorschemes and
