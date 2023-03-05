@@ -21,11 +21,11 @@ Install via [vim-plug](https://github.com/junegunn/vim-plug):
 
 Default list of colorschemes through which to cycle:
 
-    ['asciiville', 'everforest', 'cool', 'desertink', 'distinguished', 'hybrid', 'luna', 'molokai', 'solarized', 'zenburn']
+    ['kanagawa', 'tokyonight', 'monokai-pro', 'nightfox', 'tundra', 'catppuccin']
 
 Override list of colorschemes through which to cycle, for example:
 
-    let g:mycolorschemes = ['asciiville', 'everforest', 'cool', 'desertink']
+    let g:mycolorschemes = ['nightfox', 'everforest', 'cool', 'desertink']
 
 To set the Airline theme corresponding to the selected colorscheme,
 
@@ -57,7 +57,7 @@ Set the list of color schemes used by the above (default is 'all'):
 ```vim
 :SetColorSchemes all                     " all $VIMRUNTIME/colors/*.vim
 :SetColorSchemes my                      " names built into script
-:SetColorSchemes asciiville everforest   " these schemes
+:SetColorSchemes nightfox everforest   " these schemes
 :SetColorSchemes                         " display current scheme names
 ```
 

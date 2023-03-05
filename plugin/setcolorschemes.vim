@@ -11,6 +11,10 @@
 "   :SetColorSchemes                         (display current scheme names)
 " Set the current color scheme based on time of day:
 "   :SetColorSchemes now
+"
+" Supported colorschemes:
+" 'kanagawa', 'tokyonight', 'monokai-pro', 'nightfox', 'tundra', 'catppuccin'
+
 if v:version < 700 || exists('loaded_setcolorschemes') || &cp
   finish
 endif
@@ -24,7 +28,8 @@ endif
 if exists('g:mycolorschemes')
   let s:mycolorschemes = g:mycolorschemes
 else
-  let s:mycolorschemes = ['asciiville', 'everforest', 'cool', 'desertink', 'distinguished', 'hybrid', 'luna', 'molokai', 'solarized', 'zenburn']
+  " "let s:mycolorschemes = ['asciiville', 'everforest', 'cool', 'desertink', 'distinguished', 'hybrid', 'luna', 'molokai', 'solarized', 'zenburn']
+  let s:mycolorschemes = ['kanagawa', 'tokyonight', 'monokai-pro', 'nightfox', 'tundra', 'catppuccin']
 endif
 
 " Set list of color scheme names that we will use, except
@@ -42,9 +47,9 @@ function! s:SetColorSchemes(args)
     let s:mycolorschemes = map(paths, 'fnamemodify(v:val, ":t:r")')
     echo 'List of colors set from all installed color schemes'
   elseif a:args == 'my'
-    let c1 = 'asciiville everforest cool'
-    let c2 = 'desertink distinguished hybrid luna'
-    let c3 = 'molokai solarized zenburn'
+    let c1 = 'kanagawa tokyonight'
+    let c2 = 'monokai-pro nightfox'
+    let c3 = 'tundra, catppuccin'
     let s:mycolorschemes = split(c1.' '.c2.' '.c3)
     echo 'List of colors set from built-in names'
   elseif a:args == 'now'
@@ -124,7 +129,8 @@ function! s:HourColor()
   else
     let i = 4
   endif
-  let nowcolors = 'asciiville everforest cool desertink solarized'
+  " let nowcolors = 'asciiville everforest cool desertink solarized'
+  let nowcolors = 'kanagawa tokyonight monokai-pro nightfox catppuccin'
   execute 'colorscheme '.split(nowcolors)[i]
   if s:setairlinetheme
     execute 'AirlineTheme '.split(nowcolors)[i]
