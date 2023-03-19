@@ -71,13 +71,7 @@ command! -nargs=* SetColorSchemes call s:SetColorSchemes('<args>')
 " Set next/previous/random (how = 1/-1/0) color from our list of colors.
 " The 'random' index is actually set from the current time in seconds.
 " Global (no 's:') so can easily call from command line.
-function! NextColor(how)
-  call s:NextColor(a:how, s.echosetcolor)
-endfunction
-
-" Helper function for NextColor(), allows echoing of the color name to be
-" disabled.
-function! s:NextColor(how, echo_color)
+function! s:NextColor(how)
   if len(s:mycolorschemes) == 0
     call s:SetColorSchemes('all')
   endif
@@ -112,7 +106,7 @@ function! s:NextColor(how, echo_color)
   if len(missing) > 0
     echo 'Error: colorscheme not found:' join(missing)
   endif
-  if (a:echo_color)
+  if (s:echosetcolor)
     echo g:colors_name
   endif
 endfunction
