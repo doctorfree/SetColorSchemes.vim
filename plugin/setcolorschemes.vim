@@ -71,7 +71,7 @@ command! -nargs=* SetColorSchemes call s:SetColorSchemes('<args>')
 " Set next/previous/random (how = 1/-1/0) color from our list of colors.
 " The 'random' index is actually set from the current time in seconds.
 " Global (no 's:') so can easily call from command line.
-function! s:NextColor(how)
+function! NextColor(how)
   if len(s:mycolorschemes) == 0
     call s:SetColorSchemes('all')
   endif
