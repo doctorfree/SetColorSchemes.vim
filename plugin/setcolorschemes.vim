@@ -19,6 +19,12 @@ if v:version < 700 || exists('loaded_setcolorschemes') || &cp
   finish
 endif
 
+" echosetcolor option controls whether to echo the colorscheme
+if exists('g:echosetcolor')
+  let s:echosetcolor = g:echosetcolor
+else
+  let s:echosetcolor = 0
+endif
 let loaded_setcolorschemes = 1
 if exists('g:setairlinetheme')
   let s:setairlinetheme = g:setairlinetheme
@@ -66,7 +72,7 @@ command! -nargs=* SetColorSchemes call s:SetColorSchemes('<args>')
 " The 'random' index is actually set from the current time in seconds.
 " Global (no 's:') so can easily call from command line.
 function! NextColor(how)
-  call s:NextColor(a:how, 1)
+  call s:NextColor(a:how, s.echosetcolor)
 endfunction
 
 " Helper function for NextColor(), allows echoing of the color name to be

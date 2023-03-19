@@ -33,6 +33,12 @@ To set the Airline theme corresponding to the selected colorscheme,
 
 Default is leave Airline theme unchanged.
 
+To echo the colorscheme name on changes:
+
+    let g:echosetcolor = 1
+
+Default is no echo of colorscheme name.
+
 ## Usage
 
 Sets the Vim/Neovim colorscheme from a list of configured colorschemes and
